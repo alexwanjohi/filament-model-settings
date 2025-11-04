@@ -9,6 +9,7 @@ use Filament\Forms\Form;
 use Filament\Notifications\Notification;
 use Filament\Pages\Concerns;
 use Filament\Pages\Page;
+use Filament\Schemas\Schema;
 use Filament\Support\Exceptions\Halt;
 use Glorand\Model\Settings\Contracts\SettingsManagerContract;
 use Quadrubo\FilamentModelSettings\Exceptions\HasModelSettingsNotImplementedException;
@@ -18,7 +19,7 @@ class ModelSettingsPage extends Page implements HasForms
 {
     use Concerns\InteractsWithFormActions;
 
-    protected static string $view = 'filament-model-settings::pages.model-settings-page';
+    protected string $view = 'filament-model-settings::pages.model-settings-page';
 
     /**
      * @var array<string, mixed> | null
@@ -147,7 +148,7 @@ class ModelSettingsPage extends Page implements HasForms
         return $this->getSaveFormAction();
     }
 
-    public function form(Form $form): Form
+    public function form( Schema $form ): Schema
     {
         return $form;
     }
